@@ -1,1 +1,64 @@
 Convert a text representation of a Sudoku to tikz.
+
+I wrote this program because I couldn't find how to change the color of a cell
+using in the Latex Sudoku package
+(http://www.ctan.org/tex-archive/macros/latex/contrib/sudoku/).
+
+The program understand both the Latex Sudoku package format, and the Polyform
+Puzzler (http://puzzler.sourceforge.net/) format.
+
+A cell with an 's' as a suffix is interpreted as a solution and printed in red.
+
+By the default, the output of the program is a tikz file. With the -p option,
+it also produce a PDF file. The -f option add the string 'Start position in
+black, solution in red' as a footnote.
+
+
+Examples:
+
+$./sudoku2tikz.py *.sud 
+                  
+                  Convert all the *.sud files to tikz.
+
+$./sudoku2tikz.py -f -p *.sud 
+                  
+                  Convert all the *.sud files to tikz, including the
+                  footnote. It a PDF file for each Sudoku file.
+
+WARNING: The program assume that all the dependencies (Python, Latex, Tikz) are
+met. Otherwise it will fail miserably. Also, no effort is made to check that
+the format of the Sudoku description is correct.
+
+The following are examples of valid Sudokus descriptions:
+
+9 . . 4 . . . 1 6
+2 . . . 5 6 7 . .
+. . . 8 7 1 4 . 2
+6 3 . . 1 . . 5 .
+. . . . 8 . . . . 
+. 7 . . 3 . . 4 9 
+7 . 6 2 4 8 . . .
+. . 8 3 9 . . . 4 
+3 9 . . . 7 . . 5
+
+1 6s 2s 8s 5s 7 4s 9 3s
+5s 3 4s 1s 2 9s 6s 7s 8
+7s 8s 9 6 4s 3s 5 2s 1s
+4s 7s 5 3 1s 2s 9 8s 6s
+9s 1 3s 5s 8 6s 7s 4s 2
+6 2s 8s 7s 9s 4 1s 3s 5s
+3 5s 6s 4s 7s 8s 2s 1 9s
+2s 4 1s 9s 3s 5s 8s 6s 7
+8s 9s 7 2s 6s 1s 3 5s 4s
+
+|5|3| | |7| | | | |.
+|6| | |1|9|5| | | |.
+| |9|8| | | | |6| |.
+|8| | | |6| | | |3|.
+|4| | |8| |3| | |1|.
+|7| | | |2| | | |6|.
+| |6| | | | |2|8| |.
+| | | |4|1|9| | |5|.
+| | | | |8| | |7|9|.
+
+Contact: alejandro.weinstein@gmail.com
